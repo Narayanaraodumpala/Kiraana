@@ -27,9 +27,9 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-v!ke+k2oko5d@ch5_%3$s*@_k9k6uhmgh(^mxcmxtq3(abgn8^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -96,16 +96,23 @@ WSGI_APPLICATION = 'E_kiraana.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'postgres', 
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgres',
+#        'HOST': '127.0.0.1', 
+#         'PORT': '5433',
+#     }
+# }
+
+import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres', 
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-       'HOST': '127.0.0.1', 
-        'PORT': '5433',
-    }
+    'default':dj_database_url.parse(env('DATABSE_URL'))
 }
+
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -177,7 +184,6 @@ STORAGES = {
 }
 
  
-
 
 
 
