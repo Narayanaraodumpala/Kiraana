@@ -1,0 +1,75 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <link rel="stylesheet" href="{% static 'css\signup.css' %}" />
+    <title>Sign in / Sign up Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+         <div class="signin-signup">
+          <form action="{% url 'signin' %}" class="sign-in-form" method="post">
+            {% csrf_token %}
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" required name='username' />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password"  required name='password'/>
+            </div>
+            <input type="submit" value="Login" class="btn solid" />
+           <h3> Forgot Password ..? <a href="{% url 'forgot_request' %}" >Click</a> </h3>
+          </form>
+          
+        </div>
+      </div>
+
+     <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            {% if user_mesg %}
+            <h3 style="padding-bottom: 10px;color:#34eb52">{{user_mesg}}</h3>
+            {% endif %}
+            {% if message %}
+            <h3 style="padding-bottom: 10px;color:#34eb52">{{ message}}</h3>
+            {% endif %}
+            {% if error %}
+            <h3 style="padding-bottom: 10px;color:#34eb52">{{ error}}</h3>
+            {% endif %}
+            <h3>Don't You Have An Account..?</h3>
+            <p>
+              Click Sign Up And Register Your Account
+            </p>
+            <a href="{% url 'signup'  %}" ><button  class="btn transparent" id="sign-up-btn">
+              Sign up 
+            </button></a>
+          </div>
+          <img src="{% static 'login.svg' %}" class="image" alt=""  style="padding-top: 10px;"/>
+        </div> 
+       
+      </div>
+    </div> 
+    <script src="{% static 'js\signup.js' %}"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

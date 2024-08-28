@@ -1,0 +1,108 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>E-Kiraana| UsersInfo.Pdf</title>
+   
+  </head>
+  <body>
+    <h1> Basic User Info</h1>
+        <hr> <hr><br><br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+
+                <table class="table">
+                    <thead>
+                      <tr style="padding-bottom: 10px;">
+                        <th>Id </th>
+                        <th>Username</th>
+                        <th>E-mail</th>
+                        <th>First  name</th>
+                        <th>Last name</th>
+                        <th>Is Activated</th>
+                        
+                      
+                      </tr>
+                      </thead>
+                  
+                      <tbody>
+                       
+                        {% for user in users %}
+                        <tr style="padding-bottom: 5px;">
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.id}}</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.user.username}}</td>
+                            <td>{{user.user.email}}</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.user.first_name}}</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.user.last_name}}</td>
+                             {% if user.user.is_active == 1 %}
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</td>
+                            {% else %}
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No</td>
+                            {% endif %} 
+                        
+                            
+                           
+                          
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                  </table>
+
+            </div>
+        </div>
+    </div>
+
+
+<h1  style="padding-top: 60px;"> Additional
+  User Info</h1>
+
+<hr> <hr><br><br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+
+            <table class="table">
+                <thead>
+                  <tr style="padding-bottom: 10px;">
+                   
+                    <th>Username</th>
+                    <th>Unique user Id</th>
+                    
+                    <th>Forgot Password token </th>
+                    <th>Last Login</th>
+                    
+                  
+                  </tr>
+                  </thead>
+              
+                  <tbody>
+                   
+                    {% for user in users %}
+                    <tr style="padding-bottom: 5px;">
+                       
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.user.username}}</td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.unique_user_id}}</td>
+                        <td>{{user.forgot_password_token}}</td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.user.last_login}}</td>
+
+                    
+                    {% endfor %}
+                    </tbody>
+              </table>
+
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  </body>
+</html>
+

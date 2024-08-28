@@ -1,0 +1,341 @@
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<meta name="description" content="POS - Bootstrap Admin Template">
+<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
+<meta name="author" content="Dreamguys - Bootstrap Admin Template">
+<meta name="robots" content="noindex, nofollow">
+<title>E-Kiraana | Category Liist</title>
+
+
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'superadmin\assets\img\favicon.jpg' %}">
+
+<link rel="stylesheet" href="{% static 'superadmin\assets\css\bootstrap.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'superadmin\assets\css\animate.css' %}">
+
+<link rel="stylesheet" href="{% static 'superadmin\assets\plugins\select2\css\select2.min.css' %}">
+<link rel="stylesheet" href="{% static 'superadmin\assets\css\dataTables.bootstrap4.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'superadmin\assets\plugins\fontawesome\css\fontawesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'superadmin\assets\plugins\fontawesome\css\all.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'superadmin\assets\css\style.css' %}">
+
+<style>
+    
+.card {
+    max-width: 30em;
+    flex-direction: row;
+    background-color: #696969;
+    border: 0;
+    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18);
+    margin: 3em auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .card.dark {
+    color: #fff;
+  }
+  .card.card.bg-light-subtle .card-title {
+    color: dimgrey;
+  }
+  
+  .card img {
+    max-width: 25%;
+    margin: auto;
+    padding: 0.5em;
+    border-radius: 0.7em;
+  }
+  .card-body {
+    display: flex;
+    justify-content: space-between;
+  }
+  .text-section {
+    max-width: 60%;
+  }
+  .cta-section {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .cta-section .btn {
+    padding: 0.3em 0.5em;
+    /* color: #696969; */
+  }
+  .card.bg-light-subtle .cta-section .btn {
+    background-color: #898989;
+    border-color: #898989;
+  }
+  @media screen and (max-width: 475px) {
+    .card {
+      font-size: 0.9em;
+    }
+  }
+  
+</style>
+</head>
+<body>
+<div id="global-loader">
+<div class="whirly-loader"> </div>
+</div>
+
+<div class="main-wrapper">
+
+<div class="header">
+
+<div class="header-left active">
+<a href="index.html" class="logo">
+<p  style="font-size: 17px;"> E-Kiraana | SuperAdmin </p>
+</a>
+<a href="index.html" class="logo-small">
+<img src="{% static 'superadmin\assets\img\logo-small.png' %}" alt="">
+</a>
+<a id="toggle_btn" href="javascript:void(0);">
+</a>
+</div>
+
+<a id="mobile_btn" class="mobile_btn" href="#sidebar">
+<span class="bar-icon">
+<span></span>
+<span></span>
+<span></span>
+</span>
+</a>
+
+<ul class="nav user-menu">
+
+<li class="nav-item">
+<div class="top-nav-search">
+<a href="javascript:void(0);" class="responsive-search">
+<i class="fa fa-search"></i>
+</a>
+<form action="#">
+<div class="searchinputs">
+<input type="text" placeholder="Search Here ...">
+<div class="search-addon">
+<span><img src="{% static 'superadmin\assets\img\icons\closes.svg' %}" alt="img"></span>
+</div>
+</div>
+<a class="btn" id="searchdiv"><img src="{% static 'superadmin\assets\img\icons\search.svg' %}" alt="img"></a>
+</form>
+</div>
+</li>
+
+
+<li class="nav-item dropdown has-arrow flag-nav">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
+<img src="{% static 'superadmin\assets\img\flags\us.png' %}" alt="" height="20">
+</a>
+<div class="dropdown-menu dropdown-menu-right">
+<a href="javascript:void(0);" class="dropdown-item">
+<img src="{% static 'superadmin\assets\img\flags\us.png' %}" alt="" height="16"> English
+</a>
+<a href="javascript:void(0);" class="dropdown-item">
+<img src="{% static 'superadmin\assets\img\flags\fr.png' %}" alt="" height="16"> French
+</a>
+<a href="javascript:void(0);" class="dropdown-item">
+<img src="{% static 'superadmin\assets\img\flags\es.png' %}" alt="" height="16"> Spanish
+</a>
+<a href="javascript:void(0);" class="dropdown-item">
+<img src="{% static 'superadmin\assets\img\flags\de.png' %}" alt="" height="16"> German
+</a>
+</div>
+</li>
+
+
+<li class="nav-item dropdown">
+<a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+<img src="{% static 'superadmin\assets\img\icons\notification-bing.svg' %}" alt="img"> <span class="badge rounded-pill">4</span>
+</a>
+<div class="dropdown-menu notifications">
+<div class="topnav-dropdown-header">
+<span class="notification-title">Notifications</span>
+<a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+</div>
+<div class="noti-content">
+<ul class="notification-list">
+<li class="notification-message">
+<a href="activities.html">
+<div class="media d-flex">
+<span class="avatar flex-shrink-0">
+<img alt="" src="{% static 'superadmin\assets\img\profiles\avatar-02.jpg'%}">
+</span>
+<div class="media-body flex-grow-1">
+<p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
+<p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+</div>
+</div>
+</a>
+</li>
+<li class="notification-message">
+<a href="activities.html">
+<div class="media d-flex">
+<span class="avatar flex-shrink-0">
+<img alt="" src="{% static 'superadmin\assets\img\profiles\avatar-03.jpg'%}">
+</span>
+<div class="media-body flex-grow-1">
+<p class="noti-details"><span class="noti-title">Tarah Shropshire</span> changed the task name <span class="noti-title">Appointment booking with payment gateway</span></p>
+<p class="noti-time"><span class="notification-time">6 mins ago</span></p>
+</div>
+</div>
+</a>
+</li>
+<li class="notification-message">
+<a href="activities.html">
+<div class="media d-flex">
+<span class="avatar flex-shrink-0">
+<img alt="" src="{% static 'superadmin\assets\img\profiles\avatar-06.jpg'%}">
+</span>
+<div class="media-body flex-grow-1">
+<p class="noti-details"><span class="noti-title">Misty Tison</span> added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
+<p class="noti-time"><span class="notification-time">8 mins ago</span></p>
+</div>
+</div>
+</a>
+</li>
+<li class="notification-message">
+<a href="activities.html">
+<div class="media d-flex">
+<span class="avatar flex-shrink-0">
+<img alt="" src="{% static 'superadmin\assets\img\profiles\avatar-17.jpg' %}">
+</span>
+<div class="media-body flex-grow-1">
+<p class="noti-details"><span class="noti-title">Rolland Webber</span> completed task <span class="noti-title">Patient and Doctor video conferencing</span></p>
+<p class="noti-time"><span class="notification-time">12 mins ago</span></p>
+</div>
+</div>
+</a>
+</li>
+<li class="notification-message">
+<a href="activities.html">
+<div class="media d-flex">
+<span class="avatar flex-shrink-0">
+<img alt="" src="{% static 'superadmin\assets\img\profiles\avatar-13.jpg'%}">
+</span>
+<div class="media-body flex-grow-1">
+<p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added new task <span class="noti-title">Private chat module</span></p>
+<p class="noti-time"><span class="notification-time">2 days ago</span></p>
+</div>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<div class="topnav-dropdown-footer">
+<a href="activities.html">View all Notifications</a>
+</div>
+</div>
+</li>
+
+
+</ul>
+</div>
+
+</div>
+
+
+<div class="sidebar" id="sidebar">
+<div class="sidebar-inner slimscroll">
+<div id="sidebar-menu" class="sidebar-menu">
+<ul>
+<li>
+<a href="{% url 'superadminview' %}"><img src="{% static 'superadmin\assets\img\icons\dashboard.svg'%}" alt="img"><span> Dashboard</span> </a>
+</li>
+<li class="submenu">
+    <a href="javascript:void(0);"><img src="{%static 'superadmin/assets/img/icons/users1.svg'%}" alt="img"><span> Users </span> <span class="menu-arrow"></span></a>
+    <ul>
+      <li><a href="{% url 'users' %}">All Users </a></li>
+    <li><a href="{% url 'import_excel' %}">Import Excel </a></li>
+    
+
+    <li><a href="importproduct.html">Import Products</a></li>
+    <li><a href="barcode.html">Print Barcode</a></li>
+    </ul>
+    </li>
+<li class="submenu">
+<a href="javascript:void(0);"><img src="{%static 'superadmin/assets/img/icons/purchase1.svg'%}" alt="img"><span> Product</span> <span class="menu-arrow"></span></a>
+<ul>
+<li><a href="productlist.html">Product List</a></li>
+<li><a href="addproduct.html">Add Product</a></li>
+<li><a href="{% url 'brandlist' %}">Brand List</a></li>
+<li><a href="{% url 'addbrand' %}">Add Brand</a></li>
+<li><a href="{% url 'display_categories' %}">Category List</a></li>
+<li><a href="{% url 'add_category' %}">Add Category</a></li>
+
+
+<li><a href="importproduct.html">Import Products</a></li>
+<li><a href="barcode.html">Print Barcode</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="page-wrapper">
+<div class="content">
+<div class="page-header">
+<div class="page-title">
+<h4>Delete Category From  List</h4>
+<h6>This Action cannot be retried</h6>
+</div>
+
+</div>
+<div style="padding-top: 20px;">
+
+</div>
+
+{% for item in category %}
+
+<form action="{% url 'deletecategorydone' item.id %}" method="post" >
+    {% csrf_token %}
+
+<div class="card bg-light mt-4">
+    <img src="{{ item.category_image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <div class="text-section">
+        <h5 class="card-title fw-bold">{{ item.category_name  }}</h5>
+        <p class="card-text">{{ item.description }}</p>
+      </div>
+      <div class="cta-section">
+        <div>{{ item.category_code }}</div>
+        <div  style="padding-top: 20px;"> 
+        <button type="submit" class="btn btn-outline-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+  {% endfor %}
+
+
+
+
+<script src="{% static 'superadmin/assets/js/jquery-3.6.0.min.js'%}"
+></script>
+
+<script src="{% static 'superadmin/assets/js/feather.min.js'%}"
+></script>
+
+<script src="{% static 'superadmin/assets/js/jquery.slimscroll.min.js'%}"></script>
+
+<script src="{% static 'superadmin/assets/js/jquery.dataTables.min.js'%}"
+></script>
+<script src="{% static 'superadmin/assets/js/dataTables.bootstrap4.min.js'%}"
+></script>
+
+<script src="{% static 'superadmin/assets/js/bootstrap.bundle.min.js'%}"></script>
+
+<script src=" {% static 'superadmin\assets\plugins\select2\js\select2.min.js' %}"></script>
+
+<script src="{% static 'superadmin\assets\plugins\sweetalert\sweetalert2.all.min.js' %}"></script>
+<script src="{% static 'superadmin\assets\plugins\sweetalert\sweetalerts.min.js' %}"></script>
+<script src="{% static 'superadmin/assets/js/script.js'%}"></script>
+</body>
+</html>
