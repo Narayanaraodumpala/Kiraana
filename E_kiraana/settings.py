@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+import os 
 import environ
 
 env=environ.Env()
@@ -27,7 +27,7 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-v!ke+k2oko5d@ch5_%3$s*@_k9k6uhmgh(^mxcmxtq3(abgn8^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
 ALLOWED_HOSTS = ['*']
 
@@ -72,7 +72,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'E_kiraana.urls'
-import os 
+
 
 TEMPLATES = [
     {
@@ -108,8 +108,20 @@ WSGI_APPLICATION = 'E_kiraana.wsgi.application'
 # }
 
 import dj_database_url
-DATABASES = {
-    'default':dj_database_url.parse(env('DATABSE_URL'))
+if not DEBUG:
+    DATABASES = {
+        'default':dj_database_url.parse(env('DATABSE_URL'))
+    }
+else:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres', 
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+       'HOST': '127.0.0.1', 
+        'PORT': '5433',
+    }
 }
 
 
@@ -164,24 +176,24 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATICFILES_DIRS = [BASE_DIR / 'static']
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR /'assets'
 
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-    },
-}
+# STORAGES = {
+#     "default": {
+#         "BACKEND": "django.core.files.storage.FileSystemStorage",
+#     },
+#     "staticfiles": {
+#         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+#     },
+# }
 
  
 
